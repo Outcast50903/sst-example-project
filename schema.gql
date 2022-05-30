@@ -63,6 +63,7 @@ type Product {
 }
 
 type Query {
+  findClient(input: String!): User!
   me: User
   product(input: GetProductInput!): Product
   products(pagination: PaginatedInputOptions): PaginatedProducts!

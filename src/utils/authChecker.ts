@@ -1,7 +1,8 @@
 import { AuthChecker } from 'type-graphql'
 
-import { Roles } from 'src/schema/user/user.schema'
 import Context from 'src/types/context'
+
+import { Roles } from './roles'
 
 const authChecker: AuthChecker<Context, Roles> = async ({ context }, roles) => {
   const { user } = context.context

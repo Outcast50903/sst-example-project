@@ -2,29 +2,9 @@ import { getModelForClass, prop, queryMethod } from '@typegoose/typegoose'
 import { AsQueryMethod, ReturnModelType } from '@typegoose/typegoose/lib/types'
 import { EmailAddressResolver } from 'graphql-scalars'
 import { ObjectId } from 'mongodb'
-import { Field, ObjectType, registerEnumType } from 'type-graphql'
+import { Field, ObjectType } from 'type-graphql'
 
-export enum Roles {
-  ADMIN = 'admin',
-  MAINTAINER = 'maintainer',
-  USER = 'user',
-}
-
-registerEnumType(Roles, {
-  name: 'Roles',
-  description: 'App roles for each user',
-  valuesConfig: {
-    ADMIN: {
-      description: 'Access to all parameters',
-    },
-    MAINTAINER: {
-      description: 'No access to destructive actions (delete)',
-    },
-    USER: {
-      description: 'Read only permissions',
-    },
-  },
-})
+import { Roles } from 'src/utils/roles'
 
 interface QueryHelpers {
   findByEmail: AsQueryMethod<typeof findByEmail>

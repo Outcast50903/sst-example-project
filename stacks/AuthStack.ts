@@ -55,6 +55,7 @@ export class AuthStack extends Stack {
         userPoolClient: {
           authFlows: {
             userPassword: true,
+            userSrp: true,
           },
         },
       },
